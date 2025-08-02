@@ -23,12 +23,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-VECTORSTORE_DIR = "./rag_db"
+VECTORSTORE_DIR = "../rag_db"
 if os.path.exists(VECTORSTORE_DIR):
     shutil.rmtree(VECTORSTORE_DIR)
 
 txt_loader = DirectoryLoader(
-    "synthetic_company_dataset",
+    "../synthetic_company_dataset",
     glob="**/*.txt",
     loader_cls=TextLoader,
     show_progress=True,
@@ -37,7 +37,7 @@ txt_loader = DirectoryLoader(
 txt_documents = txt_loader.load()
 
 pdf_documents = []
-pdf_dir = Path("synthetic_company_dataset")
+pdf_dir = Path("../synthetic_company_dataset")
 for pdf_file in pdf_dir.rglob("*.pdf"):
     loader = PyPDFLoader(str(pdf_file))
     pdf_documents.extend(loader.load())
