@@ -7,3 +7,5 @@ chromadb
 python-dotenv
 PyPDF2
 pypdf
+pytesseract
+pillow
